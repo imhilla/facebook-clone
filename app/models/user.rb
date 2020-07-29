@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :recieved_friendship, class_name: 'Friendship', foreign_key: 'reciever_user_id', inverse_of: :reciever_user #inverse of friendship
-  has_many :requested_friendship, class_name: 'Friendship', foreign_key: 'requester_user_id', inverse_of: :requester_user#friendship
+  has_many :recieved_friendship, class_name: 'Friendship', foreign_key: 'reciever_user_id', inverse_of: :reciever_user 
+  has_many :requested_friendship, class_name: 'Friendship', foreign_key: 'requester_user_id', inverse_of: :requester_user
 
 def friends
     friends = []
