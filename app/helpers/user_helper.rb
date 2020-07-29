@@ -1,16 +1,16 @@
 module UserHelper
   def friends(user)
-    friend = []
+    friends = []
     Friendship.all.each do |request|
     	if request.status == true 
     		if request.requester_user_id == user.id
-    			friend << User.find( request.reciever_user_id )
-    		else request.reciever_user_id == user.id 
-    			friend << User.find(request.requester_user_id)
+    			friends << User.find( request.reciever_user_id )
+    		elsif request.reciever_user_id == user.id 
+    			friends << User.find(request.requester_user_id)
     		end
     	end
     end
-    friend
+    friends
   end
 
   def pending_requests(user)
@@ -25,15 +25,27 @@ module UserHelper
     pending_friend
   end
 
-  def accept_friend_request(user)
-     
+  def friend_requests(user)
+    requests = []
+    Friendship.all.each do |request|
+      if request.status == nil
+        if request.requester_user_id == user.id
+          requests << request
+        end
+      end
+    end
+    requests
   end
 
-  def reject_friend_request
+  def accept_friend_request(friendship_request)
+    friendship_request.update(status: true)     
   end
 
- 
+  def reject_friend_request(friendship_request)
+    friendship_request.update(status: false)     
+  end
 
-  def approved_requests
+  def friend?(user,user2)
+    friends(user).include?(user2)
   end
 end
