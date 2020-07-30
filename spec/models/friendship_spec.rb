@@ -16,7 +16,7 @@ RSpec.describe Friendship, type: :model do
     expect(User.first.requested_friendship.new(reciever_user_id: User.second.id)).to be_valid
   end
 
-  it 'is invalid when creator is not defined' do
+  it 'is invalid when no attribute is defined' do
     expect(User.first.requested_friendship.new()).to_not be_valid
   end
 end
