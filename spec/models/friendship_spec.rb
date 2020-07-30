@@ -6,7 +6,6 @@ RSpec.describe Friendship, type: :model do
     it { should belong_to(:requester_user).class_name('User') }
   end
 
-  
   before(:all) do
     User.create(name: 'hasan', email: 'ozovalihasan@gmail.com', password: '123456')
     User.create(name: 'hillary', email: 'hillary@gmail.com', password: '123456')
@@ -17,6 +16,6 @@ RSpec.describe Friendship, type: :model do
   end
 
   it 'is invalid when no attribute is defined' do
-    expect(User.first.requested_friendship.new()).to_not be_valid
+    expect(User.first.requested_friendship.new).to_not be_valid
   end
 end
