@@ -6,14 +6,13 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
 
+  # rubocop:disable Layout/LineLength:
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :recieved_friendship, class_name: 'Friendship', foreign_key: 'reciever_user_id'
-  has_many :recieved_friendship, inverse_of: :reciever_user, dependent: :destroy
-  has_many :requested_friendship, class_name: 'Friendship', foreign_key: 'requester_user_id'
-  has_many :requested_friendship, inverse_of: :requester_user, dependent: :destroy
-
+  has_many :recieved_friendship, class_name: 'Friendship', foreign_key: 'reciever_user_id', inverse_of: :reciever_user, dependent: :destroy
+  has_many :requested_friendship, class_name: 'Friendship', foreign_key: 'requester_user_id', inverse_of: :requester_user, dependent: :destroy
+  # rubocop:enable Layout/LineLength:
   def friends
     friends = []
     Friendship.all.each do |request|
