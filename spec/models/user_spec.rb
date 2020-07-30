@@ -70,6 +70,4 @@ RSpec.describe User, type: :model do
       expect(User.first.friend?(User.second)).to be_eql (false)
     end
   end
-
-
 end
