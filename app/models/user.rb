@@ -13,6 +13,13 @@ class User < ApplicationRecord
   has_many :recieved_friendship, class_name: 'Friendship', foreign_key: 'reciever_user_id', inverse_of: :reciever_user, dependent: :destroy
   has_many :requested_friendship, class_name: 'Friendship', foreign_key: 'requester_user_id', inverse_of: :requester_user, dependent: :destroy
   # rubocop:enable Layout/LineLength:
+  
+  def send_friend_request(user)
+    unless Friendship.all.find_by(requester_user_id: self.id, reciever_user_id: user.id) || Friendship.all.find_by(requester_user_id: user.id, reciever_user_id: self.id) 
+      self.requested_friendship.create(reciever_user_id: user.id)
+    end
+  end
+
   def friends
     friends = []
     Friendship.all.each do |request|
