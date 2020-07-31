@@ -1,20 +1,20 @@
 <section class="users-section">
-    <ul class="users-list">
-        <% @users.each do |user| %>
-            <li>
-                Name: <%= user.name %>
-                <span class="profile-link">
-                    <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-                </span>
-                <% unless current_user.friends.include? user %>
-                    <% if current_user.pending_requests.select { |m| m.user == user }.size != 0 %>
-                        <%= link_to  'Accept friend', edit_friendship_path(Friendship.all.find_by(user_id: user.id, friend_id: current_user.id)) %>
-                        <%= link_to  'Reject friend', friendship_path(Friendship.all.find_by(user_id: user.id, friend_id: current_user.id)), :method => :delete %>
-                    <% else %>
-                        <h3> Add Friend </h3>
-                    <% end %>
-                <% end %>
-            </li>
-        <% end %>
-    </ul>
+  <ul class="users-list">
+    <% @users.each do |user| %>
+    <li>
+      Name: <%= user.name %>
+      <span class="profile-link">
+        <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+      </span>
+      <% unless current_user.friends.include? user %>
+      <% if current_user.pending_requests.select { |m| m.user == user }.size != 0 %>
+      <%= link_to  'Accept friend', edit_friendship_path(Friendship.all.find_by(user_id: user.id, friend_id: current_user.id)) %>
+      <%= link_to  'Reject friend', friendship_path(Friendship.all.find_by(user_id: user.id, friend_id: current_user.id)), :method => :delete %>
+      <% else %>
+      <%= link_to  'Add friend', friendships_path(:user_id => current_user.id , :friend_id => user.id), :method => :post %>
+      <% end %>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
 </section>
