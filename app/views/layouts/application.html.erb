@@ -35,8 +35,8 @@
             </div>
         <% end %>
         <main class="main">
-            <div class="friends">
-                <%= button_to "Friends", friendships_path, method: :get %>
+            <div>
+                <%= button_to "Friends", friendships_path, method: :get, class: :friends %>
             </div>
             <%= yield %>
         </main>
