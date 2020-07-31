@@ -10,24 +10,24 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :recieved_friendship, class_name: 'Friendship', foreign_key: 'reciever_user_id', inverse_of: :reciever_user, dependent: :destroy
-  has_many :requested_friendship, class_name: 'Friendship', foreign_key: 'requester_user_id', inverse_of: :requester_user, dependent: :destroy
+  has_many :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   # rubocop:enable Layout/LineLength:
 
   def send_friend_request(user)
-    unless Friendship.all.find_by(requester_user_id: id, reciever_user_id: user.id) || Friendship.all.find_by(requester_user_id: user.id, reciever_user_id: id)
-      requested_friendship.create(reciever_user_id: user.id)
+    unless Friendship.all.find_by(user_id: id, friend_id: user.id) || Friendship.all.find_by(user_id: user.id, friend_id: id)
+      friendships.create(friend_id: user.id)
     end
   end
 
   def friends
     friends = []
     Friendship.all.each do |request|
-      if request.status == true
-        if request.requester_user_id == id
-          friends << User.find(request.reciever_user_id)
-        elsif request.reciever_user_id == id
-          friends << User.find(request.requester_user_id)
+      if request.confirmed == true
+        if request.user_id == id
+          friends << User.find(request.friend_id)
+        elsif request.friend_id == id
+          friends << User.find(request.user_id)
         end
       end
     end
@@ -37,9 +37,9 @@ class User < ApplicationRecord
   def pending_requests
     pending_friend = []
     Friendship.all.each do |pending|
-      next unless pending.status.nil?
+      next unless pending.confirmed == false
 
-      pending_friend << pending if pending.reciever_user_id == id
+      pending_friend << pending if pending.friend_id == id
     end
     pending_friend
   end
@@ -47,29 +47,29 @@ class User < ApplicationRecord
   def friend_requests
     requests = []
     Friendship.all.each do |request|
-      next unless request.status.nil?
+      next unless request.confirmed == false
 
-      requests << request if request.requester_user_id == id
+      requests << request if request.user_id == id
     end
     requests
   end
 
   def accept_friend_request(user)
-    friendship_request = Friendship.find_by(requester_user_id: user.id, reciever_user_id: id, status: nil)
-    friendship_request.update(status: true)
+    friendship_request = Friendship.find_by(user_id: user.id, friend_id: id, confirmed: false)
+    friendship_request.update(confirmed: true)
   end
 
   def reject_friend_request(user)
-    friendship_request = Friendship.find_by(requester_user_id: user.id, reciever_user_id: id, status: nil)
-    friendship_request.update(status: false)
+    friendship_request = Friendship.find_by(user_id: user.id, friend_id: id, confirmed: false)
+    friendship_request.update(confirmed: false)
   end
 
   def confirmed_friend_request
     requests = []
     Friendship.all.each do |request|
-      next unless request.status == true
+      next unless request.confirmed == true
 
-      requests << request if request.reciever_user_id == id
+      requests << request if request.friend_id == id
     end
     requests
   end

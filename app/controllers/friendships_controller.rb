@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
     end
     
     def edit
-        Friendship.find(params[:id]).update(status: true)
+        Friendship.find(params[:id]).update(confirmed: true)
         redirect_to users_path
     end
 end

@@ -1,21 +1,20 @@
 <section class="users-section">
     <ul class="users-list">
         <% @users.each do |user| %>
-        <li>
-            Name: <%= user.name %>
-            <span class="profile-link">
-                <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-            </span>
-            <% unless current_user.friends.include? user %>
-            <% if current_user.pending_requests.select { |m| m.requester_user == user }.size != 0 %>
-            <%= link_to  'Accept friend', edit_friendship_path(Friendship.all.find_by(requester_user_id: user.id, reciever_user_id: current_user.id)) %>
-            <h3> Reject </h3>
-            <% else %>
-            <h3> Add Friend </h3>
-            <% end %>
-            <% end %>
-        </li>
+            <li>
+                Name: <%= user.name %>
+                <span class="profile-link">
+                    <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+                </span>
+                <% unless current_user.friends.include? user %>
+                    <% if current_user.pending_requests.select { |m| m.requester_user == user }.size != 0 %>
+                        <%= link_to  'Accept friend', edit_friendship_path(Friendship.all.find_by(requester_user_id: user.id, reciever_user_id: current_user.id)) %>
+                        <h3> Reject </h3>
+                    <% else %>
+                        <h3> Add Friend </h3>
+                    <% end %>
+                <% end %>
+            </li>
         <% end %>
     </ul>
-
 </section>
