@@ -8,9 +8,8 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-       @new_request = Friendship.new(:user_id => params[:user_id], :friend_id => params[:friend_id])
-       @new_request.save
-
+       User.find(params[:user_id]).send_friend_request(User.find(params[:friend_id]))
+       redirect_to users_path
     end
     
     def edit
