@@ -28,6 +28,12 @@ module IntegrationTestHelpers
     click_button('save')
   end
 
+  def add_comment(text)
+    visit root_path
+    fill_in('comment_content', with: text)
+    click_button('comment')
+  end
+
   def like_post(href)
     visit root_path
     click_link('Like!', href: href)

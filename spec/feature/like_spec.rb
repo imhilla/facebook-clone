@@ -7,7 +7,7 @@ RSpec.describe 'likes_controller', type: :system do
 
   it 'likes one post' do
     do_login('hillary@gmail.com', '123456')
-    
+    add_post('Hi')
     like_post('/posts/1/likes')
     expect(page).to have_content '1 Like'
     expect(page).to have_content 'Dislike!'
