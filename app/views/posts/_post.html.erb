@@ -27,7 +27,7 @@
         <% end %>
         <%= form_for(post.comments.new, url: post_comments_path(post)) do |form| %>
             <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %>
-            <%= form.submit 'Comment', class: 'btn btn-secondary', name: 'comment' %>
+            <%= form.submit 'Comment', class: 'btn btn-secondary', name: 'send_comment' %>
         <% end %>
     </div>
 </li>

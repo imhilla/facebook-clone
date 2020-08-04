@@ -31,7 +31,7 @@ module IntegrationTestHelpers
   def add_comment(text)
     visit root_path
     fill_in('comment_content', with: text)
-    click_button('comment')
+    click_button('send_comment')
   end
 
   def like_post(href)
