@@ -5,15 +5,22 @@ RSpec.describe User, type: :model do
     it { should have_many(:posts) }
     it { should have_many(:comments).dependent(:destroy) }
     it { should have_many(:likes).dependent(:destroy) }
+    it { should have_many(:friendships).dependent(:destroy) }
     it { should have_many(:inverse_friendships).class_name('Friendship').with_foreign_key('friend_id') }
-    it { should have_many(:inverse_friendships) }
-    it { should have_many(:friendships) }
   end
 
   before(:all) do
     User.create(name: 'hasan', email: 'ozovalihasan@gmail.com', password: '123456')
     User.create(name: 'hillary', email: 'hillary@gmail.com', password: '123456')
     User.first.friendships.create(friend_id: User.second.id)
+  end
+
+  describe 'send_friend_request(user) method' do
+    it 'is expected to send friend request' do
+      User.create(name: 'james', email: 'hillary123@gmail.com', password: '123456')
+      User.second.send_friend_request(User.last)
+      expect(Friendship.last.confirmed).to be_eql false
+    end
   end
 
   describe 'accept_friend_request method' do
