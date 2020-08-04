@@ -5,14 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, length: { maximum: 20 }
-
-  # rubocop:disable Layout/LineLength:
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :friendships, dependent: :destroy
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id", dependent: :destroy
-  # rubocop:enable Layout/LineLength:
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
 
   def send_friend_request(user)
     unless Friendship.all.find_by(user_id: id, friend_id: user.id) || Friendship.all.find_by(user_id: user.id, friend_id: id)
@@ -48,7 +45,8 @@ class User < ApplicationRecord
     requests = []
     Friendship.all.each do |request|
       next unless request.confirmed == false
-      requests << request if request.user_id == self.id
+
+      requests << request if request.user_id == id
     end
     requests
   end
@@ -59,7 +57,7 @@ class User < ApplicationRecord
   end
 
   def reject_friend_request(user)
-    friendship_request = Friendship.find_by(user_id: user.id, friend_id: self.id, confirmed: false)
+    friendship_request = Friendship.find_by(user_id: user.id, friend_id: id, confirmed: false)
     friendship_request.destroy
   end
 

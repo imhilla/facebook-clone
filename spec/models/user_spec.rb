@@ -22,7 +22,26 @@ RSpec.describe User, type: :model do
       expect(Friendship.last.confirmed).to be_eql false
     end
   end
+  describe 'friends method' do
+    it 'is expected to give list of user\'s friends' do
+      User.second.accept_friend_request(User.first)
+      expect(User.first.friends[0].name).to be_eql 'hillary'
+      expect(User.second.friends[0].name).to be_eql 'hasan'
+    end
+  end
 
+  describe 'pending_requests method' do
+    it 'is expected to give list of user\'s pending friendship ' do
+      expect(User.second.pending_requests[0].friend_id).to be_eql 2
+      expect(User.second.pending_requests[0].confirmed).to be_eql false
+    end
+  end
+  describe 'friend_requests method' do
+    it 'is expected to give list of friendship sent by user' do
+      expect(User.first.friend_requests[0].user_id).to be_eql 1
+      expect(User.first.friend_requests[0].confirmed).to be_eql false
+    end
+  end
   describe 'accept_friend_request method' do
     it 'is expected to accept friend request' do
       User.second.accept_friend_request(User.first)
@@ -41,28 +60,6 @@ RSpec.describe User, type: :model do
     it 'is expected to give list of friendship confirmed by user' do
       User.second.accept_friend_request(User.first)
       expect(User.second.confirmed_friend_request[0].friend_id).to be_eql 2
-    end
-  end
-
-  describe 'pending_requests method' do
-    it 'is expected to give list of user\'s pending friendship ' do
-      expect(User.second.pending_requests[0].friend_id).to be_eql 2
-      expect(User.second.pending_requests[0].confirmed).to be_eql false
-    end
-  end
-
-  describe 'friend_requests method' do
-    it 'is expected to give list of friendship sent by user' do
-      expect(User.first.friend_requests[0].user_id).to be_eql 1
-      expect(User.first.friend_requests[0].confirmed).to be_eql false
-    end
-  end
-
-  describe 'friends method' do
-    it 'is expected to give list of user\'s friends' do
-      User.second.accept_friend_request(User.first)
-      expect(User.first.friends[0].name).to be_eql 'hillary'
-      expect(User.second.friends[0].name).to be_eql 'hasan'
     end
   end
 
