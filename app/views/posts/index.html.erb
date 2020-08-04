@@ -6,7 +6,7 @@
             <%= "Post could not be saved. #{@post.errors.full_messages.join('. ')}" %>
         </p>
     <% end %>
-    <%= form.submit 'Save', class: 'btn btn-primary' %>
+    <%= form.submit 'Save', class: 'btn btn-primary', name: 'save' %>
 <% end %>
 <article class="timeline">
     <h3>

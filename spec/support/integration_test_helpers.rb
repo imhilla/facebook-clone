@@ -16,18 +16,24 @@ module IntegrationTestHelpers
     click_button('log_in')
   end
 
-  def create_event(title)
-    click_link('Create Event')
-    fill_in('Title', with: title)
-    page.find('#event_date').set('10-23-2020')
-    fill_in('Description', with: 'Very good party')
-    click_button('commit')
+
+  def do_logout
+    visit root_path
+    click_link('Sign out')
   end
 
-  def invite(creator, invited_user, event)
-    visit root_path
-    click_link(creator.username)
-    click_link(event)
-    select invited_user.username, from: 'user_id'
+  def add_post(text)
+    fill_in('post_content', with: text)
+    click_button('save')
   end
+
+  def like_post(href)
+    click_link('Like!', href: href)
+  end
+  
+  def dislike_post(href)
+    click_link('Dislike!', href: href)
+  end
+
+
 end
