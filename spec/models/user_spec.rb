@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
   describe 'reject_friend_request method' do
     it 'is expected to reject friend request' do
       User.second.reject_friend_request(User.first)
-      expect(Friendship.first.confirmed).to be_eql false
+      expect(Friendship.all.size).to be_eql 0
     end
   end
 
