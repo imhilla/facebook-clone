@@ -1,17 +1,18 @@
 module IntegrationTestHelpers
   def do_signup(username, email, password)
     visit root_path
-    click_link('Sign up')
-    fill_in('Name', with: username)
-    fill_in('Email', with: email)
-    fill_in('Password (6 characters minimum)', with: password)
-    fill_in('Password confirmation', with: password)
-    click_button('sign_up')
+    # click_link('Sign up')
+    # fill_in('Name', with: username)
+    # fill_in('Email', with: email)
+    # fill_in('Password (6 characters minimum)', with: password)
+    # fill_in('Password confirmation', with: password)
+    # click_button('sign_up')
   end
 
   def do_login(email)
     visit root_path
     fill_in('Email', with: email)
+    
     click_button('Log in')
   end
 
