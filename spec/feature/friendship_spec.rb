@@ -23,7 +23,7 @@ RSpec.describe 'friendships_controller', type: :system do
     expect(page).to have_content 'Your Friend'
   end
 
-  it 'accepts friend request' do
+  it 'rejects friend request' do
     do_login('hillary@gmail.com', '123456')
     send_friendship_request
     do_logout
@@ -32,4 +32,13 @@ RSpec.describe 'friendships_controller', type: :system do
     expect(page).to have_button("Add friend")
   end
 
+  it 'lists all friends of user' do
+    do_login('hillary@gmail.com', '123456')
+    send_friendship_request
+    do_logout
+    do_login('hasan@gmail.com', '123456')
+    accept_friendship_request
+    click_link("Friends")
+    expect(page).to have_content 'hillary'
+  end
 end
