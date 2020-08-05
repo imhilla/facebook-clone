@@ -41,7 +41,7 @@ This is a forked repository. So, some changes are added to existing project. Nex
 - Added tests for model and features of the app
 - 'rspec', 'capybara' and 'shoulda-matchers' gems are used for tests
 
-## Built With
+## Built with
 
 - Ruby on rails
 - Git
@@ -62,7 +62,7 @@ This is a forked repository. So, some changes are added to existing project. Nex
 - Open rails server by using `rails s`
 - Open browser and go to http://localhost:3000
 
-## Test
+## Test app
 
 - Setup it
 - Run `rspec`
