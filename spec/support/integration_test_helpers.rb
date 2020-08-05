@@ -16,7 +16,6 @@ module IntegrationTestHelpers
     click_button('log_in')
   end
 
-
   def do_logout
     visit root_path
     click_link('Sign out')
@@ -38,12 +37,12 @@ module IntegrationTestHelpers
     visit root_path
     click_link('Like!', href: href)
   end
-  
+
   def dislike_post(href)
     visit root_path
     click_link('Dislike!', href: href)
   end
-  
+
   def send_friendship_request
     visit root_path
     click_link('All users')

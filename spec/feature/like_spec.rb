@@ -20,5 +20,4 @@ RSpec.describe 'likes_controller', type: :system do
     dislike_post('/posts/1/likes/1')
     expect(page).to have_content 'Like!'
   end
-
 end

@@ -11,5 +11,4 @@ RSpec.describe 'comments_controller', type: :system do
     add_comment('Hi, too!')
     expect(page).to have_content 'Hi, too!'
   end
-
 end

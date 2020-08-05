@@ -22,5 +22,4 @@ RSpec.describe 'users_controller', type: :system do
     expect(page).to have_content 'Email'
     expect(page).to have_content 'Password'
   end
-
 end

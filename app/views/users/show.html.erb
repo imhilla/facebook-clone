@@ -1,7 +1,7 @@
 <section class="user-section">
     <h2>
         <%= "Name: #{@user.name}" %>
-        <%= render "friend_choices", user: @user %>
+        <%= links_to_friendship(@user) %>
     </h2>
     <article class="timeline">
         <h3>Recent posts:</h3>

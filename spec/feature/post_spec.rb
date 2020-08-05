@@ -10,5 +10,4 @@ RSpec.describe 'posts_controller', type: :system do
     add_post('Hi')
     expect(page).to have_content 'Hi'
   end
-
 end

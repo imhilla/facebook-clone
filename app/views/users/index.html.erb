@@ -7,7 +7,7 @@
                 <span class="profile-link">
                     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
                 </span>
-                <%= render "friend_choices", user: user %>
+                <%= links_to_friendship(user) %>
             </li>
         <% end %>
     </ul>
