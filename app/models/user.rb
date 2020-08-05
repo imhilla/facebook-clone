@@ -19,11 +19,9 @@ class User < ApplicationRecord
   def friends
     friends = []
     Friendship.all.each do |request|
-      if request.confirmed == true
-        if request.user_id == id
-          friends << User.find(request.friend_id)
-        end
-      end
+      next unless request.confirmed == true
+
+      friends << User.find(request.friend_id) if request.user_id == id
     end
     friends
   end
@@ -51,7 +49,7 @@ class User < ApplicationRecord
   def accept_friend_request(user)
     friendship_request = Friendship.find_by(user_id: user.id, friend_id: id, confirmed: false)
     friendship_request.update(confirmed: true)
-    Friendship.create(user_id: user_id, friend_id: user.id, confirmed: true)
+    Friendship.create(user_id: id, friend_id: user.id, confirmed: true)
   end
 
   def reject_friend_request(user)
