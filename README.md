@@ -25,15 +25,16 @@ In this project, the following actions are done;
 - Created Entity Relationship Diagram of the app. 
 - This means defining the relationships between different models in the app.
 
-###  Friendships v1
+###  Functionalities added
 
-- Created the friendship model with associations and all requested features for friendships
-- Added the friendship invitation feature
-- Added friendship invitation feature
+This is a forked repository. So, some changes are added to existing project. Next functionalities are added;
+
+- Created the friendship model with associations and all requested features for friendships.
+- Added the friendship invitation feature.
+- Added friendship invitation feature.
 - For pending friendship invitation we added a feature to accept or reject an invitation.
 - Added the number of likes functionality.
 - On post timeline a user can see the most recent posts from only friends list.
-
 
 ### Tests
 
@@ -44,7 +45,10 @@ In this project, the following actions are done;
 
 - Ruby on rails
 - Git
+- PostgreSQL
+- lucidchart for ERD
 - Shields.io
+
 
 ## Setup
 
@@ -52,6 +56,9 @@ In this project, the following actions are done;
 - Open terminal
 - Change directory by using `cd members-only/`
 - Run `bundle install`
+- [Setup PostgreSQL](https://www.howtoforge.com/tutorial/ruby-on-rails-ror-with-postgresql-on-ubuntu-16-04/#step-setting-up-the-postgresql-database-for-rails-development). Use `sudo -u postgres psql postgres` instead of `su - postgres`
+- Run `rails db:setup`
+- Run `rails db:migrate`
 - Open rails server by using `rails s`
 - Open browser and go to http://localhost:3000
 
@@ -64,18 +71,18 @@ In this project, the following actions are done;
 
 Reach out to us at one of the following places!
 
-👤 **Hillary Kiptoo**
-
-- LinkedIn: [Hillary Kiptoo](https://www.linkedin.com/in/hillarykiptoo)
-- Github: [@imhilla](https://github.com/imhilla)
-- Twitter: [@hillarykiptoo](https://twitter.com/hillarykiptoo_)
-
 👤 **Hasan Özovalı**
 
 - LinkedIn: [Hasan Ozovali](https://www.linkedin.com/in/hasan-ozovali/)
 - Github: [@ozovalihasan](https://github.com/ozovalihasan)
 - Twitter: [@ozovalihasan](https://twitter.com/ozovalihasan)
 - Mail: [ozovalihasan@gmail.com](ozovalihasan@gmail.com)
+
+👤 **Hillary Kiptoo**
+
+- LinkedIn: [Hillary Kiptoo](https://www.linkedin.com/in/hillarykiptoo)
+- Github: [@imhilla](https://github.com/imhilla)
+- Twitter: [@hillarykiptoo](https://twitter.com/hillarykiptoo_)
 
 ## Contributing 🤝
 
