@@ -10,12 +10,11 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :friendships, dependent: :destroy
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
-
+  # rubocop:disable Layout/LineLength
   def send_friend_request(user)
-    unless Friendship.all.find_by(user_id: id, friend_id: user.id) || Friendship.all.find_by(user_id: user.id, friend_id: id)
-      friendships.create(friend_id: user.id)
-    end
+    friendships.create(friend_id: user.id) unless Friendship.all.find_by(user_id: id, friend_id: user.id) || Friendship.all.find_by(user_id: user.id, friend_id: id)
   end
+  # rubocop:enable Layout/LineLength
 
   def friends
     friends = []

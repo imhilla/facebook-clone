@@ -4,7 +4,7 @@ module LayoutsHelper
       render 'layouts/sign_out'
     else
       render 'layouts/sign_in'
-   end
+    end
   end
 
   def notice_or_alert
