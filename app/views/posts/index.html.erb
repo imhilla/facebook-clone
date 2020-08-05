@@ -1,14 +1,14 @@
 <%= form_for(@post) do |form| %>
-    <%= form.label :content %>
-    <%= form.text_field :content, id: :post_content, class: 'form-control', placeholder: 'Add New Post' %>
-    <%= not_save_post %>
-    <%= form.submit 'Save', class: 'btn btn-primary', name: 'save' %>
+  <%= form.label :content %>
+  <%= form.text_field :content, id: :post_content, class: 'form-control', placeholder: 'Add New Post' %>
+  <%= not_save_post %>
+  <%= form.submit 'Save', class: 'btn btn-primary', name: 'save' %>
 <% end %>
 <article class="timeline">
-    <h3>
-        Recent posts
-    </h3>
-    <ul class="posts">
-        <%= render @timeline_posts %>
-    </ul>
+  <h3>
+    Recent posts
+  </h3>
+  <ul class="posts">
+    <%= render @timeline_posts %>
+  </ul>
 </article>

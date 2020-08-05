@@ -1,12 +1,12 @@
 <section class="user-section">
-    <h2>
-        <%= "Name: #{@user.name}" %>
-        <%= links_to_friendship(@user) %>
-    </h2>
-    <article class="timeline">
-        <h3>Recent posts:</h3>
-        <ul class="posts">
-            <%= render @posts %>
-        </ul>
-    </article>
+  <h2>
+    <%= "Name: #{@user.name}" %>
+    <%= links_to_friendship(@user) %>
+  </h2>
+  <article class="timeline">
+    <h3>Recent posts:</h3>
+    <ul class="posts">
+      <%= render @posts %>
+    </ul>
+  </article>
 </section>
