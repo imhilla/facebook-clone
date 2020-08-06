@@ -20,12 +20,12 @@ We also prepared the data architecture documentation of the app with an Entity R
 
 In this project, the following actions are done;
 
-###  Prepared data architecture documentation
+### Prepared data architecture documentation
 
-- Created Entity Relationship Diagram of the app. 
+- Created Entity Relationship Diagram of the app.
 - This means defining the relationships between different models in the app.
 
-###  Functionalities added
+### Functionalities added
 
 This is a forked repository. So, some changes are added to existing project. Next functionalities are added;
 
@@ -49,12 +49,11 @@ This is a forked repository. So, some changes are added to existing project. Nex
 - lucidchart for ERD
 - Shields.io
 
-
 ## Setup
 
 - Clone this repository
 - Open terminal
-- Change directory by using `cd members-only/`
+- Change directory by using `cd facebook-clone/`
 - Run `bundle install`
 - [Setup PostgreSQL](https://www.howtoforge.com/tutorial/ruby-on-rails-ror-with-postgresql-on-ubuntu-16-04/#step-setting-up-the-postgresql-database-for-rails-development). Use `sudo -u postgres psql postgres` instead of `su - postgres`
 - Run `rails db:setup`
@@ -65,6 +64,8 @@ This is a forked repository. So, some changes are added to existing project. Nex
 ## Test app
 
 - Setup it
+- Install [Chrome](https://www.google.com/chrome/)
+- Run `rails db:test:prepare`
 - Run `rspec`
 
 ## Authors
