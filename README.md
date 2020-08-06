@@ -89,7 +89,7 @@ Reach out to us at one of the following places!
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](./issues/).
+Feel free to check the [issues page](https://github.com/imhilla/facebook-clone/issues).
 
 ## Acknowledgments
 
