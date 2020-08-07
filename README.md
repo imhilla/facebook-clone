@@ -62,7 +62,7 @@ This is a forked repository. So, some changes are added to existing project. Nex
 ## Test app
 
 - Follow steps given in Setup part
-- Install [Chrome](https://www.google.com/chrome/)
+- Install Chrome from [main page of Chrome](https://www.google.com/chrome/) or [terminal](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/) 
 - Run `rails db:test:prepare`
 - Run `rspec`
 
