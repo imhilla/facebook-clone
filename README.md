@@ -20,12 +20,12 @@ We also prepared the data architecture documentation of the app with an Entity R
 
 In this project, the following actions are done;
 
-###  Prepared data architecture documentation
+### Prepared data architecture documentation
 
-- Created Entity Relationship Diagram of the app. 
+- Created Entity Relationship Diagram of the app.
 - This means defining the relationships between different models in the app.
 
-###  Functionalities added
+### Functionalities added
 
 This is a forked repository. So, some changes are added to existing project. Next functionalities are added;
 
@@ -49,22 +49,21 @@ This is a forked repository. So, some changes are added to existing project. Nex
 - lucidchart for ERD
 - Shields.io
 
-
 ## Setup
 
 - Clone this repository
 - Open terminal
-- Change directory by using `cd members-only/`
+- Change directory by using `cd facebook-clone/`
 - Run `bundle install`
-- [Setup PostgreSQL](https://www.howtoforge.com/tutorial/ruby-on-rails-ror-with-postgresql-on-ubuntu-16-04/#step-setting-up-the-postgresql-database-for-rails-development). Use `sudo -u postgres psql postgres` instead of `su - postgres`
-- Run `rails db:setup`
 - Run `rails db:migrate`
 - Open rails server by using `rails s`
 - Open browser and go to http://localhost:3000
 
 ## Test app
 
-- Setup it
+- Follow steps given in Setup part
+- Install Chrome from [main page of Chrome](https://www.google.com/chrome/) or [terminal](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/) 
+- Run `rails db:test:prepare`
 - Run `rspec`
 
 ## Authors
@@ -88,7 +87,7 @@ Reach out to us at one of the following places!
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](./issues/).
+Feel free to check the [issues page](https://github.com/imhilla/facebook-clone/issues).
 
 ## Acknowledgments
 
