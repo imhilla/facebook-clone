@@ -9,7 +9,7 @@ RSpec.describe FriendshipsController, :type => :controller do
   end
 
   describe "#edit" do
-    it "creates two freindships for the same two users" do
+    it "creates two friendships for the same two users" do
       expect {
         post :edit, params: {id: 1}
       }.to change(Friendship, :count).by(1)
