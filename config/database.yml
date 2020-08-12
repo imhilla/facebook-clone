@@ -20,7 +20,8 @@ test:
   <<: *default
   database: db/test.sqlite3
 
- production:
-   <<: *default
-   adapter: postgresql
-   database: db/production.sqlite3
+production:
+  adapter: postgresql
+  database: facebook-clone
+  pool: 5
+  timeout: 5000
