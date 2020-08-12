@@ -45,7 +45,7 @@ group :development, :test do
   gem 'pry', '~> 0.12.2'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'webdrivers', '~> 4.4', '>= 4.4.1'
-  # Use sqlite3 as the database for Active Record 
+  # Use sqlite3 as the database for Active Record
 
   gem 'sqlite3'
 end

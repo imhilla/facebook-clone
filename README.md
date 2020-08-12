@@ -49,6 +49,10 @@ This is a forked repository. So, some changes are added to existing project. Nex
 - lucidchart for ERD
 - Shields.io
 
+## Live demo
+
+Please [check](https://facebook-newclone.herokuapp.com/).
+
 ## Setup
 
 - Clone this repository
