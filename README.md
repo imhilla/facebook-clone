@@ -49,6 +49,10 @@ This is a forked repository. So, some changes are added to existing project. Nex
 - lucidchart for ERD
 - Shields.io
 
+## Live demo
+
+Please [check](https://facebook-newclone.herokuapp.com/).
+
 ## Setup
 
 - Clone this repository
@@ -62,9 +66,22 @@ This is a forked repository. So, some changes are added to existing project. Nex
 ## Test app
 
 - Follow steps given in Setup part
-- Install Chrome from [main page of Chrome](https://www.google.com/chrome/) or [terminal](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/) 
+- Install Chrome from [main page of Chrome](https://www.google.com/chrome/) or [terminal](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/)
 - Run `rails db:test:prepare`
 - Run `rspec`
+
+## Deploy to Heroku
+
+- Sign in [Heroku](https://www.heroku.com/).
+- Open your terminal.
+- Run `heroku login`. If you get any error, run `sudo snap install --classic heroku` and [check](https://devcenter.heroku.com/articles/heroku-cli).
+- Create an app by running `heroku create name-of-app`. You may use any name for name of your Heroku app.
+- If you are using sqlite3 for database, update 'database.yml' file by [following steps](https://devcenter.heroku.com/articles/sqlite3).
+- If you are using master branch,run `git push heroku master`. If you are using another branch, run `git push heroku +HEAD:master`.
+- Open your app from your [dashboard of heroku](https://dashboard.heroku.com/).
+- Open console by using 'Run console' button in Heroku.
+- Run `rake db:migrate` from this console.
+- Push 'Open app' button to access your app.
 
 ## Authors
 
