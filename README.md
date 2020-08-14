@@ -1,85 +1,121 @@
-# Scaffold for social media app with Ruby on Rails
+# Facebook-clone [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/imhilla/facebook-clone)
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+[![License](https://img.shields.io/badge/License-MIT-green.svg)]()
+![GitHub followers](https://img.shields.io/github/followers/imhilla?label=imhilla&style=social)
+![Twitter URL](https://img.shields.io/twitter/follow/hillarykiptoo_?label=Follow&style=social) [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
+![GitHub followers](https://img.shields.io/github/followers/ozovalihasan?label=ozovalihasan&style=social)
+![Twitter URL](https://img.shields.io/twitter/follow/ozovalihasan?label=Follow&style=social)
 
-## Built With
+> This is a Microverse Ruby on Rails Project
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+> Facebook-clone!
 
-## Live Demo
+## Description
 
-TBA
+In this project, we built an application Facebook-clone which has similar functionality as that of Facebook. The main goal of the project is to familiarize ourseves with the MVP term, build something simple that works. After the core features have been implemented, then we can improve your app.
 
+We also prepared the data architecture documentation of the app with an Entity Relationship Diagram (ERD).
 
-## Getting Started
+## Features
 
-To get a local copy up and running follow these simple example steps.
+In this project, the following actions are done;
 
-### Prerequisites
+### Prepared data architecture documentation
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
+- Created Entity Relationship Diagram of the app.
+- This means defining the relationships between different models in the app.
 
-### Setup
+### Functionalities added
 
-Instal gems with:
+This is a forked repository. So, some changes are added to existing project. Next functionalities are added;
 
-```
-bundle install
-```
+- Created the friendship model with associations and all requested features for friendships.
+- Added the friendship invitation feature.
+- Added friendship invitation feature.
+- For pending friendship invitation we added a feature to accept or reject an invitation.
+- Added the number of likes functionality.
+- On post timeline a user can see the most recent posts from only friends list.
 
-Setup database with:
+### Tests
 
-```
-   rails db:create
-   rails db:migrate
-```
+- Added tests for model and features of the app
+- 'rspec', 'capybara' and 'shoulda-matchers' gems are used for tests
 
+## Built with
 
+- Ruby on rails
+- Git
+- PostgreSQL
+- lucidchart for ERD
+- Shields.io
 
-### Usage
+## Live demo
 
-Start server with:
+Please [check](https://facebook-newclone.herokuapp.com/).
 
-```
-    rails server
-```
+## Setup
 
-Open `http://localhost:3000/` in your browser.
+- Clone this repository
+- Open terminal
+- Change directory by using `cd facebook-clone/`
+- Run `bundle install`
+- Run `rails db:migrate`
+- Open rails server by using `rails s`
+- Open browser and go to http://localhost:3000
 
-### Run tests
+## Test app
 
-```
-    rpsec --format documentation
-```
+- Follow steps given in Setup part
+- Install Chrome from [main page of Chrome](https://www.google.com/chrome/) or [terminal](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/)
+- Run `rails db:test:prepare`
+- Run `rspec`
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
+## Deploy to Heroku
 
-### Deployment
-
-TBA
+- Sign in [Heroku](https://www.heroku.com/).
+- Open your terminal.
+- Run `heroku login`. If you get any error, run `sudo snap install --classic heroku` and [check](https://devcenter.heroku.com/articles/heroku-cli).
+- Create an app by running `heroku create name-of-app`. You may use any name for name of your Heroku app.
+- If you are using sqlite3 for database, update 'database.yml' file by [following steps](https://devcenter.heroku.com/articles/sqlite3).
+- If you are using master branch,run `git push heroku master`. If you are using another branch, run `git push heroku +HEAD:master`.
+- Open your app from your [dashboard of heroku](https://dashboard.heroku.com/).
+- Open console by using 'Run console' button in Heroku.
+- Run `rake db:migrate` from this console.
+- Push 'Open app' button to access your app.
 
 ## Authors
 
-TBA
+Reach out to us at one of the following places!
 
-## 🤝 Contributing
+👤 **Hasan Özovalı**
 
-Contributions, issues and feature requests are welcome!
+- LinkedIn: [Hasan Ozovali](https://www.linkedin.com/in/hasan-ozovali/)
+- Github: [@ozovalihasan](https://github.com/ozovalihasan)
+- Twitter: [@ozovalihasan](https://twitter.com/ozovalihasan)
+- Mail: [ozovalihasan@gmail.com](ozovalihasan@gmail.com)
 
-Feel free to check the [issues page](issues/).
+👤 **Hillary Kiptoo**
+
+- LinkedIn: [Hillary Kiptoo](https://www.linkedin.com/in/hillarykiptoo)
+- Github: [@imhilla](https://github.com/imhilla)
+- Twitter: [@hillarykiptoo](https://twitter.com/hillarykiptoo_)
+
+## Contributing 🤝
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/imhilla/facebook-clone/issues).
+
+## Acknowledgments
+
+- Thanks to Microverse for its support!
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
+## License
 
-TBA
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-## 📝 License
-
-TBA
-
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
